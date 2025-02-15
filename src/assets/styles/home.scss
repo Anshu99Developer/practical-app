@@ -1,0 +1,11 @@
+@use "./mixin.scss" as *;
+@use "./variables.scss" as *;
+
+// Hero Section
+.hero-section {
+  @include mq("phone-and-tablet") {
+    &.section-padding {
+      padding-top: 0px;
+    }
+  }
+}

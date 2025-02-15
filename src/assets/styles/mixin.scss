@@ -1,0 +1,186 @@
+/* MIXIN : MEDIA QUERIES
+ *    EX : @include mq( 'lap-and-up' ) { CODE }
+ * ------------------------------------------------------------------------- */
+$mini-phone: "screen and (max-width: 375px)";
+$phone: "screen and (max-width: 767px)";
+$phone-up: "screen and (min-width: 768px)";
+$tablet-up: "screen and (min-width: 1023px)";
+$phone-and-tablet: "screen and (max-width: 1024px)";
+$tablet: "screen and (min-width: 768px) and (max-width: 1024px)";
+$lap-to-small-desk: "screen and (min-width: 1023px) and (max-width: 1279px)";
+$small-desk-to-mid-lap: "screen and (min-width: 1280px) and (max-width: 1600px)";
+$mid-lap: "screen and (min-width: 1023px) and (max-width: 1600px)";
+$lap-and-up: "screen and (min-width: 1600px)";
+
+@mixin mq($alias) {
+  @if $alias == "phone" {
+    @media #{$phone} {
+      @content;
+    }
+  } @else if $alias == "mini-phone" {
+    @media #{$mini-phone} {
+      @content;
+    }
+  } @else if $alias == "phone-and-tablet" {
+    @media #{$phone-and-tablet} {
+      @content;
+    }
+  } @else if $alias == "tablet-up" {
+    @media #{$tablet-up} {
+      @content;
+    }
+  } @else if $alias == "phone-up" {
+    @media #{$phone-up} {
+      @content;
+    }
+  } @else if $alias == "mid-lap" {
+    @media #{$mid-lap} {
+      @content;
+    }
+  } @else if $alias == "tablet" {
+    @media #{$tablet} {
+      @content;
+    }
+  } @else if $alias == "lap-and-up" {
+    @media #{$lap-and-up} {
+      @content;
+    }
+  } @else if $alias == "lap-to-small-desk" {
+    @media #{$lap-to-small-desk} {
+      @content;
+    }
+  } @else {
+    @media (#{$alias}) {
+      @content;
+    }
+  }
+}
+
+/* MIXIN : MIXIN
+   *    EX : @include All Mixin
+   * ------------------------------------------------------------------------- */
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex($content) {
+  -webkit-box-flex: $content;
+  -ms-flex: $content;
+  flex: $content;
+}
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+}
+@mixin flex-wrap($wrap) {
+  flex-wrap: $wrap;
+  -webkit-flex-wrap: $wrap;
+}
+@mixin justify-content($content) {
+  -webkit-justify-content: $content;
+  justify-content: $content;
+}
+@mixin flex-grow($content) {
+  -webkit-box-flex: $content;
+  -ms-flex-positive: $content;
+  flex-grow: $content;
+}
+@mixin flex-shrink($content) {
+  -ms-flex-negative: $content;
+  flex-shrink: $content;
+}
+@mixin flex-flow($content) {
+  -webkit-box-orient: $content;
+  -webkit-box-direction: $content;
+  -ms-flex-flow: $content;
+  flex-flow: $content;
+}
+@mixin align-content($content) {
+  -ms-flex-line-pack: $content;
+  align-content: $content;
+}
+@mixin order($content) {
+  -webkit-box-ordinal-group: $content;
+  -ms-flex-order: $content;
+  order: $content;
+}
+@mixin align-items($align) {
+  -webkit-box-align: $align;
+  -webkit-flex-align: $align;
+  -ms-flex-align: $align;
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+@mixin align-self($content) {
+  -ms-flex-item-align: $content;
+  -ms-grid-row-align: $content;
+  align-self: $content;
+}
+@mixin inline-flex() {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+@mixin line-clamp($content) {
+  -webkit-line-clamp: $content;
+}
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+@mixin transition($x...) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+  transition: $x;
+}
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+@mixin background-opacity($color, $opacity: 0.5) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin object-fit($content) {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@mixin object-position($content) {
+  -o-object-position: $content;
+  object-position: $content;
+}
+
+/* MIXIN : typography
+     * ------------------------------------------------------------------------- */
+@mixin typo_graphy($size, $weight) {
+  font-size: #{$size}px;
+  font-weight: $weight;
+}
